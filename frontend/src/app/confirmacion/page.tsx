@@ -51,7 +51,7 @@ export default function ConfirmacionPage() {
                   Ubicación
                 </h3>
                 <p className="text-lg text-gray-900">Estudio Vitamina Movimiento</p>
-                <p className="text-gray-600">San José, Costa Rica</p>
+                <p className="text-gray-600">Cartago, Costa Rica</p>
               </div>
             </div>
             
