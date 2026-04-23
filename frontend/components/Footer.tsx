@@ -90,7 +90,7 @@ export default function Footer() {
               &copy; 2026 Vitamina Movimiento · Stephanie Madriz
             </p>
             <p className="text-amber-100/60 text-xs italic">
-              El movimiento es tu vitamina diaria 🌅
+              El movimiento es tu vitamina diaria
             </p>
           </div>
         </div>
