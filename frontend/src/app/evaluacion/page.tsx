@@ -41,7 +41,7 @@ const questions: Question[] = [
   },
   {
     id: 3,
-    question: "¿Tienes alguna lesión o limitación física?",
+    question: "¿Tenés alguna lesión o limitación física?",
     options: [
       "No tengo limitaciones",
       "Problemas de espalda",
@@ -51,7 +51,7 @@ const questions: Question[] = [
   },
   {
     id: 4,
-    question: "¿Cuánto tiempo puedes dedicar al ejercicio por semana?",
+    question: "¿Cuánto tiempo podés dedicarle al movimiento por semana?",
     options: [
       "1-2 horas por semana",
       "3-4 horas por semana",
@@ -61,11 +61,11 @@ const questions: Question[] = [
   },
   {
     id: 5,
-    question: "¿Qué tipo de ambiente prefieres para entrenar?",
+    question: "¿Qué ambiente preferís para entrenar?",
     options: [
       "Sesiones individuales personalizadas",
       "Clases grupales pequeñas",
-      "Actividades relajantes como yoga",
+      "Actividades relajantes como movilidad y yoga",
       "Combinación de diferentes modalidades"
     ]
   }
@@ -89,49 +89,42 @@ export default function EvaluacionPage() {
 
   const getRecommendations = (): ServiceRecommendation[] => {
     const recommendations: ServiceRecommendation[] = [];
-    
-    // Lógica de recomendación basada en respuestas
     const activityLevel = answers[0];
     const goal = answers[1];
     const limitations = answers[2];
-    const timeAvailable = answers[3];
     const environment = answers[4];
 
-    // Entrenamiento Personal
     if (goal === 0 || goal === 1 || limitations > 0 || environment === 0) {
       recommendations.push({
-        service: "Entrenamiento Personal",
-        description: "Sesiones individualizadas perfectas para tus objetivos específicos y cualquier limitación física que puedas tener.",
-        price: "Desde $50/sesión",
+        service: "Clase Personalizada 1:1",
+        description: "Sesiones individualizadas para tus objetivos y cualquier limitación que tengas.",
+        price: "Consultar",
         icon: "👤"
       });
     }
 
-    // Yoga & Pilates
     if (goal === 2 || environment === 2 || activityLevel <= 1 || limitations === 1) {
       recommendations.push({
-        service: "Yoga & Pilates",
-        description: "Ideal para mejorar flexibilidad, reducir estrés y fortalecer el core de manera suave y efectiva.",
-        price: "Desde $35/clase",
+        service: "Movilidad & Postura",
+        description: "Ideal para mejorar flexibilidad, liberar tensión y fortalecer el core de forma suave.",
+        price: "Consultar",
         icon: "🧘‍♀️"
       });
     }
 
-    // Nutrición Deportiva
     if (goal === 0 || goal === 1 || activityLevel >= 2) {
       recommendations.push({
-        service: "Nutrición Deportiva",
-        description: "Plan nutricional personalizado para optimizar tus resultados y alcanzar tus objetivos más rápido.",
-        price: "Desde $80/plan",
-        icon: "🥗"
+        service: "Plan de Longevidad Activa",
+        description: "Mapeo postural + plan de hábitos diarios para sostener movimiento de por vida.",
+        price: "Consultar",
+        icon: "🌅"
       });
     }
 
-    // Si no hay recomendaciones específicas, agregar evaluación completa
     if (recommendations.length === 0) {
       recommendations.push({
-        service: "Evaluación Completa",
-        description: "Análisis detallado de tu condición física actual para crear un plan completamente personalizado.",
+        service: "Evaluación Inicial",
+        description: "Análisis detallado de tu cuerpo para diseñar un plan 100% personalizado.",
         price: "Gratuita",
         icon: "📋"
       });
@@ -148,47 +141,52 @@ export default function EvaluacionPage() {
 
   if (showResults) {
     const recommendations = getRecommendations();
-    
+
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-[#FFF8F0]">
         <Header />
-        
+
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center mb-12">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            <div className="w-20 h-20 bg-gradient-to-br from-amber-300 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              ¡Evaluación Completada!
+
+            <h1 className="text-4xl md:text-5xl font-bold text-[#3D2F26] mb-4">
+              ¡Evaluación completada!
             </h1>
-            
-            <p className="text-xl text-gray-600 mb-8">
-              Basado en tus respuestas, estos son los servicios que recomendamos para ti:
+
+            <p className="text-xl text-[#6B5545] mb-8 max-w-2xl mx-auto">
+              Basado en tus respuestas, estos son los caminos que recomiendo para vos:
             </p>
           </div>
 
           <div className="space-y-6 mb-12">
             {recommendations.map((rec, index) => (
-              <div key={index} className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-8 border border-green-100">
+              <div key={index} className="bg-white rounded-3xl p-8 border border-amber-200/70 shadow-md hover:shadow-xl transition-all">
                 <div className="flex items-start">
                   <div className="text-4xl mr-6">{rec.icon}</div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    <h3 className="text-2xl font-bold text-[#3D2F26] mb-3">
                       {rec.service}
                     </h3>
-                    <p className="text-lg text-gray-600 mb-4">
+                    <p className="text-[#6B5545] mb-4 leading-relaxed">
                       {rec.description}
                     </p>
                     <div className="flex items-center justify-between">
-                      <span className="text-xl font-semibold text-green-600">
+                      <span className="text-lg font-semibold text-orange-700">
                         {rec.price}
                       </span>
-                      <button className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
-                        Más Información
-                      </button>
+                      <a
+                        href={`https://wa.me/50686094225?text=${encodeURIComponent(`Hola Stephanie, hice la evaluación y me interesa ${rec.service}.`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:from-orange-600 hover:to-amber-600 transition-all shadow-md"
+                      >
+                        Más info
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -196,20 +194,20 @@ export default function EvaluacionPage() {
             ))}
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+          <div className="bg-amber-50/60 border border-amber-200 rounded-2xl p-6 mb-8">
             <div className="flex items-start">
               <div className="flex-shrink-0">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <div className="ml-3">
-                <h3 className="text-lg font-medium text-blue-900 mb-2">
-                  Próximos Pasos
+                <h3 className="text-lg font-bold text-[#3D2F26] mb-2">
+                  Próximos pasos
                 </h3>
-                <p className="text-blue-800">
-                  Stephanie revisará tus respuestas y se pondrá en contacto contigo para programar una consulta gratuita 
-                  donde podrán discutir en detalle el plan perfecto para tus necesidades.
+                <p className="text-[#6B5545] leading-relaxed">
+                  Stephanie revisa tus respuestas y se pone en contacto para coordinar una consulta gratuita
+                  donde armamos el plan ideal para vos.
                 </p>
               </div>
             </div>
@@ -217,25 +215,25 @@ export default function EvaluacionPage() {
 
           <div className="text-center space-y-4">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                href="/confirmacion" 
-                className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+              <Link
+                href="/confirmacion"
+                className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-8 py-3 rounded-full font-semibold transition-all shadow-md hover:shadow-lg"
               >
-                Agendar Consulta Gratuita
+                Agendar consulta gratuita
               </Link>
-              <button 
+              <button
                 onClick={resetTest}
-                className="border-2 border-green-600 text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors"
+                className="border-2 border-[#3D2F26] text-[#3D2F26] px-8 py-3 rounded-full font-semibold hover:bg-[#3D2F26] hover:text-[#FFF8F0] transition-colors"
               >
-                Repetir Evaluación
+                Repetir evaluación
               </button>
             </div>
-            
-            <Link 
-              href="/" 
-              className="text-gray-600 hover:text-green-600 transition-colors inline-block"
+
+            <Link
+              href="/"
+              className="text-[#6B5545] hover:text-orange-600 transition-colors inline-block"
             >
-              Volver al Inicio
+              ← Volver al inicio
             </Link>
           </div>
         </div>
@@ -246,48 +244,48 @@ export default function EvaluacionPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#FFF8F0]">
       <Header />
-      
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Evaluación Corporal Personalizada
+          <h1 className="text-4xl md:text-5xl font-bold text-[#3D2F26] mb-4">
+            Evaluación <span className="text-sunrise-gradient">personalizada</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Responde estas preguntas para descubrir qué servicios de Vitamina Movimiento son perfectos para ti
+          <p className="text-xl text-[#6B5545] mb-8 max-w-2xl mx-auto">
+            Respondé estas preguntas para descubrir qué formato de Vitamina Movimiento te sirve más.
           </p>
-          
+
           {/* Progress Bar */}
-          <div className="w-full bg-gray-200 rounded-full h-2 mb-8">
-            <div 
-              className="bg-green-600 h-2 rounded-full transition-all duration-300"
+          <div className="w-full bg-amber-100 rounded-full h-2 mb-4 overflow-hidden">
+            <div
+              className="bg-gradient-to-r from-orange-500 to-amber-400 h-2 rounded-full transition-all duration-500"
               style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
             ></div>
           </div>
-          
-          <p className="text-sm text-gray-500">
+
+          <p className="text-sm text-[#6B5545]">
             Pregunta {currentQuestion + 1} de {questions.length}
           </p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+        <div className="bg-white rounded-3xl shadow-lg border border-amber-200/60 p-8 mb-8">
+          <h2 className="text-2xl font-semibold text-[#3D2F26] mb-8">
             {questions[currentQuestion].question}
           </h2>
-          
-          <div className="space-y-4">
+
+          <div className="space-y-3">
             {questions[currentQuestion].options.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleAnswer(index)}
-                className="w-full text-left p-6 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition-all duration-200 group"
+                className="w-full text-left p-5 border-2 border-amber-200/70 rounded-2xl hover:border-orange-400 hover:bg-amber-50/60 transition-all duration-200 group"
               >
                 <div className="flex items-center">
-                  <div className="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 group-hover:border-green-500 flex items-center justify-center">
-                    <div className="w-3 h-3 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="w-6 h-6 border-2 border-amber-300 rounded-full mr-4 group-hover:border-orange-500 flex items-center justify-center transition-colors">
+                    <div className="w-3 h-3 bg-gradient-to-br from-orange-500 to-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </div>
-                  <span className="text-lg text-gray-700 group-hover:text-green-700">
+                  <span className="text-base md:text-lg text-[#3D2F26] group-hover:text-orange-700 transition-colors">
                     {option}
                   </span>
                 </div>
@@ -297,11 +295,11 @@ export default function EvaluacionPage() {
         </div>
 
         <div className="text-center">
-          <Link 
-            href="/" 
-            className="text-gray-600 hover:text-green-600 transition-colors"
+          <Link
+            href="/"
+            className="text-[#6B5545] hover:text-orange-600 transition-colors"
           >
-            ← Volver al Inicio
+            ← Volver al inicio
           </Link>
         </div>
       </div>

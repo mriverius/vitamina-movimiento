@@ -1,23 +1,27 @@
 import type { Metadata } from "next";
-import { Poppins, Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+// Display serif with warmth — for headlines
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
+// Clean sans for body
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Vitamina Movimiento | Coach de Movilidad y Longevidad",
-  description: "Recupera tu libertad de movimiento con Stephanie Madriz. Especialista en movilidad, prevención de lesiones y longevidad activa.",
+  title: "Vitamina Movimiento | Stephanie Madriz · Coach de Movilidad",
+  description: "El movimiento es tu vitamina diaria. Mapeá tu cuerpo y seguí haciendo lo que amás —sin lesiones— a los 40, 60 o 90 años. Con Stephanie Madriz en Cartago, Costa Rica.",
 };
 
 export default function RootLayout({
@@ -26,10 +30,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
-        className={`${poppins.variable} ${inter.variable} antialiased font-sans`}
-        style={{ fontFamily: 'var(--font-poppins)' }}
+        className={`${fraunces.variable} ${inter.variable} antialiased`}
+        style={{ fontFamily: 'var(--font-inter)' }}
       >
         {children}
       </body>
