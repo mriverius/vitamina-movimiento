@@ -311,7 +311,7 @@ h1, h2, h3 {
 }
 
 .text-sunrise-gradient {
-  background: linear-gradient(90deg, #D65F32, #F5A65B, #F4C06B);
+  background: linear-gradient(90deg, #5B2333, #7A3B47, #6B4038);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -105,7 +105,7 @@ function SunRays({ className = "" }: { className?: string }) {
 
 /* ---------- Components ---------- */
 
-function WhatsAppButton({ label = "Reservá tu primera clase", variant = "primary" }: { label?: string; variant?: "primary" | "outline" }) {
+function WhatsAppButton({ label = "Reserva tu primera clase", variant = "primary" }: { label?: string; variant?: "primary" | "outline" }) {
   const base = "px-7 py-3.5 rounded-full text-base font-semibold transition-all shadow-lg flex items-center justify-center space-x-3 w-fit";
   const styles =
     variant === "primary"
@@ -172,23 +172,17 @@ export default function Home() {
         <div className="absolute top-44 left-[20%] w-24 h-4 rounded-full bg-white/50 blur-lg pointer-events-none animate-text-fade-in animation-delay-3200"></div>
 
         {/* === Amanecer scene at horizon (sun first, then text) === */}
-        {/* Rays fan out from sun — appears after sun emerges */}
-        <div className="absolute bottom-44 left-1/2 -translate-x-1/2 w-[1100px] h-[580px] pointer-events-none z-0 animate-rays-fan animation-delay-900">
-          <SunRays className="w-full h-full" />
-        </div>
 
         {/* Wide halo glow */}
         <div className="absolute bottom-28 left-1/2 -translate-x-1/2 w-[680px] h-[680px] rounded-full bg-gradient-to-t from-orange-400/50 via-amber-300/35 to-amber-100/0 blur-3xl pointer-events-none z-0 animate-halo-reveal animation-delay-700"></div>
 
-        {/* The sun disc — emerges from the horizon first. Centered via wrapper so the animation only controls Y+scale. */}
-        <div className="absolute bottom-40 left-1/2 -translate-x-1/2 pointer-events-none z-0">
-          <div className="w-60 h-60 md:w-64 md:h-64 rounded-full bg-gradient-to-b from-amber-100 via-amber-300 to-orange-500 shadow-[0_0_120px_rgba(245,166,91,0.7),0_0_200px_rgba(244,192,107,0.4)] animate-sun-emerge"></div>
-        </div>
-
         {/* === Content: centered editorial layout === */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
           <div className="flex flex-col items-center text-center space-y-8">
-            <div className="animate-text-fade-in animation-delay-1500">
+            <div className="animate-text-fade-in animation-delay-1500 flex flex-col items-center space-y-4">
+              <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg ring-2 ring-amber-300/60">
+                <Image src="/logo4.jpeg" alt="Vitamina Movimiento" width={56} height={56} className="w-full h-full object-cover" />
+              </div>
               <SectionBadge>Coach Certificada · Cartago, CR</SectionBadge>
             </div>
 
@@ -199,18 +193,18 @@ export default function Home() {
             </h1>
 
             <p className="text-lg md:text-xl text-[#6B5545] leading-relaxed max-w-2xl animate-text-fade-in animation-delay-2500">
-              Aprendé a mapear tu cuerpo para seguir haciendo lo que amás —caminar la montaña,
-              cargar a tus hijos, correr, bailar— por mucho más tiempo y{" "}
+              Aprende a conocer y mapear tu cuerpo para seguir haciendo lo que amas: caminar la montaña,
+              levantar peso, correr o bailar por mucho más tiempo,{" "}
               <span className="font-semibold text-orange-700">sin lesiones.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-text-fade-in animation-delay-2600">
-              <WhatsAppButton label="Reservá tu primera sesión" />
+              <WhatsAppButton label="Reserva tu primera sesión" />
               <a
                 href="#filosofia"
                 className="px-7 py-3.5 rounded-full text-base font-semibold text-[#3D2F26] border-2 border-[#3D2F26]/25 hover:border-[#3D2F26] hover:bg-white/50 transition-all flex items-center justify-center space-x-2"
               >
-                <span>Conocé el método</span>
+                <span>Conoce el método</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
@@ -250,12 +244,11 @@ export default function Home() {
             <div className="text-center max-w-3xl mx-auto mb-16">
               <SectionBadge>La Filosofía</SectionBadge>
               <h2 className="mt-6 text-4xl md:text-5xl font-bold text-[#3D2F26] leading-tight">
-                Longevidad para seguir <br className="hidden md:block" />
-                <span className="text-sunrise-gradient">haciendo lo que amás.</span>
+                La consciencia postural se traduce en{" "}<br className="hidden md:block" />
+                <span className="text-sunrise-gradient">longevidad.</span>
               </h2>
               <p className="mt-6 text-lg text-[#6B5545] leading-relaxed">
-                No se trata solo de entrenar. Se trata de entender tu cuerpo tanto,
-                que puedas escalar tu próxima montaña —literal o simbólica— a los 40, 60 o 90 años.
+                La autoobservación, a través del yoga y el movimiento, nos permite reconocer patrones posturales y comprender mejor nuestro cuerpo. No solo practicamos: transformamos el cuerpo y la mente.
               </p>
             </div>
           </Reveal>
@@ -264,14 +257,14 @@ export default function Home() {
             {/* Pillar 1 */}
             <Reveal variant="up" delay={100}>
               <div className="group relative bg-white rounded-3xl p-8 shadow-md hover:shadow-xl border border-amber-200/70 hover:border-orange-300 transition-all">
-                <div className="absolute -top-6 left-8 w-14 h-14 bg-gradient-to-br from-amber-300 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <SunIcon className="w-8 h-8 text-white" />
+                <div className="absolute -top-6 left-8 w-14 h-14 bg-gradient-to-br from-amber-300 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform overflow-hidden">
+                  <Image src="/logo4.jpeg" alt="VM" width={56} height={56} className="w-full h-full object-cover" />
                 </div>
                 <div className="pt-6">
-                  <h3 className="text-xl font-bold text-[#3D2F26] mb-3">Vitalidad como hábito</h3>
+                  <h3 className="text-xl font-bold text-[#3D2F26] mb-3">Hábito y vitalidad</h3>
                   <p className="text-[#6B5545] leading-relaxed">
-                    El movimiento consciente es el suplemento que tu cuerpo pide a gritos.
-                    Una dosis diaria de movilidad prolonga tu independencia y tu alegría.
+                    El movimiento consciente es el suplemento que tu cuerpo necesita. Una dosis diaria de movilidad prolonga tu independencia y tu alegría, mientras desarrolla control y estabilidad.
+                    La ligereza en el movimiento no es casualidad: nace de entender tu propio cuerpo, y eso se construye despacio.
                   </p>
                 </div>
               </div>
@@ -284,10 +277,10 @@ export default function Home() {
                   <MountainIcon className="w-8 h-7 text-white" />
                 </div>
                 <div className="pt-6">
-                  <h3 className="text-xl font-bold text-[#3D2F26] mb-3">Mapeate para prevenir</h3>
+                  <h3 className="text-xl font-bold text-[#3D2F26] mb-3">Mapéate para prevenir</h3>
                   <p className="text-[#6B5545] leading-relaxed">
-                    Conocer tus debilidades, asimetrías y patrones posturales es la forma más
-                    inteligente de evitar lesiones antes de que aparezcan.
+                    Conocer tus asimetrías y patrones posturales te ayuda a evitar lesiones antes de que aparezcan.
+                    Mapear tu cuerpo te da herramientas para la vida: reconocer tensiones, liberarlas y moverte con más criterio.
                   </p>
                 </div>
               </div>
@@ -304,8 +297,8 @@ export default function Home() {
                 <div className="pt-6">
                   <h3 className="text-xl font-bold text-[#3D2F26] mb-3">Escuchar al cuerpo</h3>
                   <p className="text-[#6B5545] leading-relaxed">
-                    Tu cuerpo lleva años hablándote. Mi trabajo es enseñarte a descifrarlo:
-                    hábitos posturales que se convierten en una segunda naturaleza.
+                    Tu cuerpo ya te da señales. Aprender a leerlas cambia todo.
+                    Construimos hábitos posturales que se vuelven parte de tu naturaleza.
                   </p>
                 </div>
               </div>
@@ -324,7 +317,7 @@ export default function Home() {
               <div className="relative">
                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
                   <Image
-                    src="/WhatsApp Image 2026-03-05 at 10.41.24 PM.jpeg"
+                    src="/steph-principal.jpeg"
                     alt="Stephanie Madriz - Instructora de Vitamina Movimiento"
                     width={600}
                     height={720}
@@ -346,17 +339,16 @@ export default function Home() {
             </Reveal>
 
             <Reveal variant="right" as="div" className="space-y-8 order-1 lg:order-2" delay={200}>
-              <SectionBadge>Conocé a tu coach</SectionBadge>
+              <SectionBadge>Conoce a tu coach</SectionBadge>
 
               <h2 className="text-4xl md:text-5xl font-bold text-[#3D2F26] leading-tight">
                 Stephanie <span className="text-sunrise-gradient">Madriz</span>
               </h2>
 
               <p className="text-lg text-[#6B5545] leading-relaxed">
-                Coach certificada de movilidad apasionada por el sol, las montañas y la idea de
-                que envejecer no debería significar rendirse. Combino movilidad articular,
-                evaluación postural y hábitos diarios para que tu cuerpo te siga respondiendo
-                por muchos años.
+                Profesora de yoga apasionada por el movimiento humano y por usar el cuerpo como vehículo para explorar.
+                Me encanta estar en la naturaleza: caminar la montaña, nadar en ríos y descubrir nuevos caminos. Pero a la montaña no siempre se llega en carro; a veces hay que preparar el cuerpo antes, durante y después.
+                Combino el yoga con la movilidad articular para crear libertad de movimiento y acompañarte a moverte mejor, por más tiempo.
               </p>
 
               <div className="grid grid-cols-1 gap-4">
@@ -369,7 +361,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-bold text-[#3D2F26] mb-1">Misión</h4>
                     <p className="text-sm text-[#6B5545] leading-relaxed">
-                      Devolverte la libertad de movimiento con hábitos posturales sostenibles en el tiempo.
+                      Ayudarte a recuperar y sostener tu libertad de movimiento a través de hábitos posturales conscientes y duraderos.
                     </p>
                   </div>
                 </div>
@@ -383,7 +375,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-bold text-[#3D2F26] mb-1">Enfoque</h4>
                     <p className="text-sm text-[#6B5545] leading-relaxed">
-                      Mapeo tu cuerpo tanto que prevenimos lesiones antes de que aparezcan.
+                      La consciencia corporal como herramienta de transformación: aprender a observar, entender y entrenar tu cuerpo para moverte con control, estabilidad y confianza.
                     </p>
                   </div>
                 </div>
@@ -397,14 +389,14 @@ export default function Home() {
                   <div>
                     <h4 className="font-bold text-[#3D2F26] mb-1">Visión</h4>
                     <p className="text-sm text-[#6B5545] leading-relaxed">
-                      Una comunidad que combina movimiento, montaña y vida larga con sentido.
+                      Crear una comunidad que integre yoga, movimiento y naturaleza, donde el cuerpo se entrena para la vida real y lo natural siempre es el punto de partida.
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="pt-2">
-                <WhatsAppButton label="Agendá tu evaluación" />
+                <WhatsAppButton label="Agenda tu evaluación" />
               </div>
             </Reveal>
           </div>
@@ -426,11 +418,8 @@ export default function Home() {
               </div>
               <h2 className="mt-6 text-4xl md:text-5xl font-bold leading-tight">
                 Cuatro pasos para <br />
-                <span className="text-sunrise-gradient">entenderte mejor.</span>
+                <span className="text-sunrise-gradient">volver a tu cuerpo.</span>
               </h2>
-              <p className="mt-6 text-lg text-amber-100/80 leading-relaxed">
-                Un proceso claro, paciente y personalizado que se adapta a tu cuerpo y a tu vida.
-              </p>
             </div>
           </Reveal>
 
@@ -439,25 +428,25 @@ export default function Home() {
               {
                 num: "01",
                 title: "Escucho",
-                desc: "Conocemos tu historia: qué te duele, qué amás hacer, qué querés poder hacer a los 80.",
+                desc: "Tu historia importa: lo que duele, lo que disfrutas y hacia dónde quieres llegar.",
                 color: "from-amber-300 to-orange-400",
               },
               {
                 num: "02",
                 title: "Mapeo",
-                desc: "Evaluación postural, rangos de movilidad y patrones de compensación. Nada queda en el aire.",
+                desc: "Evaluamos tu postura, rangos de movilidad, estabilidad y fuerza. Nada queda al azar: entendemos tu punto de partida.",
                 color: "from-orange-400 to-red-500",
               },
               {
                 num: "03",
                 title: "Muevo",
-                desc: "Plan personalizado de movilidad y hábitos posturales que podés sostener en casa y en tu rutina.",
+                desc: "Diseñamos un plan personalizado de yoga y movilidad para mejorar tus hábitos posturales. Prácticas que puedes integrar en tu rutina y hacer desde casa.",
                 color: "from-amber-400 to-yellow-500",
               },
               {
                 num: "04",
                 title: "Sostengo",
-                desc: "Seguimiento, ajustes y recordatorios. Movilidad no es un sprint, es una práctica de por vida.",
+                desc: "Acompañamiento, ajustes y recordatorios. La movilidad no es un sprint: es una práctica de por vida.",
                 color: "from-red-500 to-orange-500",
               },
             ].map((step, i) => (
@@ -490,7 +479,7 @@ export default function Home() {
             <div className="text-center max-w-2xl mx-auto mb-16">
               <SectionBadge>Servicios</SectionBadge>
               <h2 className="mt-6 text-4xl md:text-5xl font-bold text-[#3D2F26] leading-tight">
-                Elegí tu <span className="text-sunrise-gradient">formato</span>
+                Elige tu <span className="text-sunrise-gradient">formato</span>
               </h2>
               <p className="mt-6 text-lg text-[#6B5545] leading-relaxed">
                 Desde donde estés. Presencial en Cartago o conectados desde cualquier parte del mundo.
@@ -683,7 +672,9 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <Reveal variant="scale">
-            <SunIcon className="w-16 h-16 text-white/90 mx-auto mb-6" />
+            <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 shadow-lg ring-4 ring-white/30">
+              <Image src="/logo4.jpeg" alt="Vitamina Movimiento" width={80} height={80} className="w-full h-full object-cover" />
+            </div>
           </Reveal>
           <Reveal variant="up" delay={100}>
             <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
@@ -693,7 +684,7 @@ export default function Home() {
           </Reveal>
           <Reveal variant="up" delay={200}>
             <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Reservá tu primera sesión y empecemos a mapear el cuerpo que te va a acompañar
+              Reserva tu primera sesión y empieza a construir el cuerpo que te va a acompañar
               los próximos 50 años.
             </p>
           </Reveal>
@@ -708,7 +699,7 @@ export default function Home() {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.087z" />
               </svg>
-              <span>Reservá por WhatsApp</span>
+              <span>Reserva por WhatsApp</span>
             </a>
             <a
               href="tel:+50686094225"
@@ -720,6 +711,18 @@ export default function Home() {
               <span>+506 8609 4225</span>
             </a>
           </div>
+          </Reveal>
+          <Reveal variant="up" delay={400}>
+            <div className="mt-14 space-y-3">
+              <p className="text-xl md:text-2xl font-bold text-white">Vitamina Movimiento</p>
+              <p className="text-base text-white/80">Movimiento consciente para una vida larga, libre y sin lesiones.</p>
+              <p className="text-sm text-white/70 italic">Conoce tu cuerpo. Mapéalo. Cuídalo.</p>
+              <div className="pt-4">
+                <div className="w-14 h-14 rounded-full overflow-hidden mx-auto shadow-lg ring-2 ring-white/30">
+                  <Image src="/logo4.jpeg" alt="Vitamina Movimiento" width={56} height={56} className="w-full h-full object-cover" />
+                </div>
+              </div>
+            </div>
           </Reveal>
         </div>
 
