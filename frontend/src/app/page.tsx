@@ -195,7 +195,7 @@ export default function Home() {
             <p className="text-lg md:text-xl text-[#6B5545] leading-relaxed max-w-2xl animate-text-fade-in animation-delay-2500">
               Aprende a conocer y mapear tu cuerpo para seguir haciendo lo que amas: caminar la montaña,
               levantar peso, correr o bailar por mucho más tiempo,{" "}
-              <span className="font-semibold text-orange-700">sin lesiones.</span>
+              <span className="font-semibold text-sunrise-gradient">sin lesiones.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-text-fade-in animation-delay-2600">

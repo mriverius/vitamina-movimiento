@@ -29,7 +29,7 @@ export default function Footer() {
                 height={50}
                 className="rounded-full ring-2 ring-amber-300/50"
               />
-              <h3 className="text-2xl font-bold text-sunrise-gradient">
+              <h3 className="text-2xl font-bold text-white">
                 Vitamina Movimiento
               </h3>
             </div>
