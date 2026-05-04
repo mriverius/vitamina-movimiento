@@ -712,18 +712,6 @@ export default function Home() {
             </a>
           </div>
           </Reveal>
-          <Reveal variant="up" delay={400}>
-            <div className="mt-14 space-y-3">
-              <p className="text-xl md:text-2xl font-bold text-white">Vitamina Movimiento</p>
-              <p className="text-base text-white/80">Movimiento consciente para una vida larga, libre y sin lesiones.</p>
-              <p className="text-sm text-white/70 italic">Conoce tu cuerpo. Mapéalo. Cuídalo.</p>
-              <div className="pt-4">
-                <div className="w-14 h-14 rounded-full overflow-hidden mx-auto shadow-lg ring-2 ring-white/30">
-                  <Image src="/logo4.jpeg" alt="Vitamina Movimiento" width={56} height={56} className="w-full h-full object-cover" />
-                </div>
-              </div>
-            </div>
-          </Reveal>
         </div>
 
         {/* Mountain silhouette bottom */}

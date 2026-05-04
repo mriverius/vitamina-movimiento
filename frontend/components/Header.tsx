@@ -23,7 +23,7 @@ export default function Header() {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-[#3D2F26] tracking-tight">Stephanie Madriz</span>
-              <span className="text-xs text-orange-600 font-medium tracking-wide uppercase">Vitamina Movimiento</span>
+              <span className="text-xs font-medium tracking-wide uppercase text-sunrise-gradient">Vitamina Movimiento</span>
             </div>
           </Link>
 
