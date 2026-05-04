@@ -34,7 +34,7 @@ export default function Footer() {
               </h3>
             </div>
             <p className="text-amber-100/80 text-sm leading-relaxed max-w-xs">
-              Movimiento consciente para una vida larga, libre y <span className="text-sunrise-gradient font-semibold">sin lesiones.</span> Entiende tu cuerpo, mapéalo, cuídalo.
+              Movimiento consciente para una vida larga, libre y <span className="text-orange-400 font-semibold">sin lesiones.</span> Entiende tu cuerpo, mapéalo, cuídalo.
             </p>
           </div>
 
